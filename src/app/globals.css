@@ -1,0 +1,52 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-ivory: #faf7f2;
+  --color-champagne: #f3e7d3;
+  --color-rose: #d8a7b1;
+  --color-sage: #a8b5a2;
+  --color-gold: #c6a86a;
+  --color-ink: #2d2d2d;
+  --color-muted: #666666;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(216, 167, 177, 0.12), transparent 28%),
+    linear-gradient(180deg, #fcfaf7 0%, #faf7f2 100%);
+  color: var(--color-ink);
+}
+
+@layer base {
+  * {
+    @apply border-[#efe6db];
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+::selection {
+  background: rgba(216, 167, 177, 0.35);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

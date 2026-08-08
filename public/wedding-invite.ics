@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GeeNi//Wedding Invite//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:geeni-wedding-2026-12-02T183000@geeni
+DTSTAMP:20260808T000000Z
+DTSTART:20261202T183000
+DTEND:20261202T223000
+SUMMARY:Nidhi & Govind Wedding Celebration
+DESCRIPTION:Join us for our wedding celebration. We would love to celebrate with you.
+LOCATION:Serene Resort, Hyderabad
+END:VEVENT
+END:VCALENDAR
