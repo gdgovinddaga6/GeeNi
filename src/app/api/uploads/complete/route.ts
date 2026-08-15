@@ -20,10 +20,6 @@ export async function POST(request: Request) {
     return jsonError('Uploads are currently closed. Please enjoy the gallery instead.', 403);
   }
 
-  if (!isAwsConfigured()) {
-    return jsonError('Photo storage is being prepared. Please try again a little later.', 503);
-  }
-
   if (isGoogleAuthReady()) {
     const session = await getServerSession(authOptions);
     if (!session) {
@@ -41,6 +37,10 @@ export async function POST(request: Request) {
   const items = Array.isArray(body.items) ? body.items : [];
   if (items.length === 0) {
     return jsonError('Please choose one or more files first.', 400);
+  }
+
+  if (!isAwsConfigured()) {
+    return jsonError('Photo storage is being prepared. Please try again a little later.', 503);
   }
 
   const uploadsPrefix = getUploadsPrefix();
