@@ -68,7 +68,7 @@ The website should prioritize emotion over information.
 
 ---
 
-# Technology (Planned)
+# Technology
 
 Frontend
 
@@ -81,22 +81,61 @@ Frontend
 
 Backend
 
-- Supabase
-- PostgreSQL
-- Edge Functions
+- Next.js Route Handlers
+- DynamoDB
 
 Storage
 
-- Supabase Storage
+- Amazon S3
+- CloudFront
 
 Authentication
 
-- OTP Login
-- Google Login
+- Google Login (feature switch)
+- OTP Login (planned)
 
 Hosting
 
-- Vercel
+- AWS Amplify Hosting
+- App Runner or ECS via Docker
+
+---
+
+# Feature switches
+
+Set these in `.env.local` or your Amplify environment:
+
+- `NEXT_PUBLIC_FEATURE_UPLOAD` — `true` to show guest uploads, `false` to close them
+- `NEXT_PUBLIC_FEATURE_GOOGLE_AUTH` — `true` to require Google sign-in before upload
+
+Copy `.env.example` to get started.
+
+---
+
+# Deploy on AWS
+
+1. Create media infrastructure:
+
+```bash
+aws cloudformation deploy \
+  --template-file infra/template.yaml \
+  --stack-name geeni-media \
+  --parameter-overrides SiteOrigin=https://your-app.amplifyapp.com AppName=geeni \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+2. Copy stack outputs into Amplify (or App Runner) environment variables: `AWS_S3_BUCKET`, `NEXT_PUBLIC_MEDIA_BASE_URL` / `AWS_CLOUDFRONT_URL`, `AWS_DYNAMODB_MEDIA_TABLE`, `AWS_DYNAMODB_RATE_LIMITS_TABLE`, and `AWS_REGION`.
+3. Attach the stack’s app role (or an equivalent policy) to Amplify SSR / App Runner so the app can sign S3 uploads and write DynamoDB without long-lived access keys.
+4. Connect the repo to Amplify Hosting. `amplify.yml` installs, lints, tests, and builds the Next.js app.
+5. For Google sign-in, create an OAuth client whose authorized redirect URI is `https://<your-domain>/api/auth/callback/google`, then set `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `NEXTAUTH_SECRET`, and `NEXTAUTH_URL`.
+6. Drop official gallery photos into `gallery-assets/` and run `npm run sync:gallery`.
+
+Container hosting:
+
+```bash
+docker build -t geeni .
+docker run --env-file .env -p 3000:3000 geeni
+```
 
 ---
 
