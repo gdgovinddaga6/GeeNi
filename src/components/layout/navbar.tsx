@@ -3,16 +3,18 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { CalendarDays, Heart, Menu, X } from 'lucide-react';
+import { features, type FeatureName } from '@/lib/config/features';
 
-const links = [
+const links: Array<{ href: string; label: string; feature?: FeatureName }> = [
   { href: '/events', label: 'Events' },
   { href: '/venue', label: 'Venue' },
   { href: '/gallery', label: 'Gallery' },
-  { href: '/upload', label: 'Upload' },
+  { href: '/upload', label: 'Upload', feature: 'upload' },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const visibleLinks = links.filter((link) => !link.feature || features[link.feature]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#efe6db] bg-ivory/90 backdrop-blur-md">
@@ -28,7 +30,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
-          {links.map((link) => (
+          {visibleLinks.map((link) => (
             <Link key={link.href} href={link.href} className="text-sm font-medium text-muted transition hover:text-ink">
               {link.label}
             </Link>
@@ -59,7 +61,7 @@ export function Navbar() {
       {isOpen && (
         <div className="border-t border-[#efe6db] bg-ivory md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8" aria-label="Mobile navigation">
-            {links.map((link) => (
+            {visibleLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

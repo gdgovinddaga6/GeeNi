@@ -7,6 +7,7 @@ import { ArrowRight, CalendarRange, Camera, MapPin, Sparkles } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { features } from '@/lib/config/features';
 
 const quickActions = [
   {
@@ -121,7 +122,9 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {quickActions.map((item) => {
+          {quickActions
+            .filter((item) => item.href !== '/upload' || features.upload)
+            .map((item) => {
             const Icon = item.icon;
             return (
               <Link key={item.href} href={item.href} className="group block h-full">

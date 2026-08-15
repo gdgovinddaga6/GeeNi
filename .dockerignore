@@ -1,13 +1,11 @@
 node_modules
 .next
-out
+.git
 coverage
-.DS_Store
 *.log
 .env
-.env.local
-.env.*.local
-tsconfig.tsbuildinfo
+.env.*
+!.env.example
 gallery-assets/*
 !gallery-assets/.gitkeep
 !gallery-assets/README.md
