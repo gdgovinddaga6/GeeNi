@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { CalendarDays, Heart, Menu, X } from 'lucide-react';
+import { MusicToggle } from '@/components/layout/music-toggle';
 
 const links = [
   { href: '/events', label: 'Events' },
@@ -35,25 +36,27 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex">
+        <div className="flex items-center gap-2">
+          <MusicToggle />
+
           <Link
             href="/rsvp"
-            className="inline-flex items-center gap-2 rounded-full border border-[#e6dbce] bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-rose hover:text-rose"
+            className="hidden items-center gap-2 rounded-full border border-[#e6dbce] bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-rose hover:text-rose md:inline-flex"
           >
             <CalendarDays className="h-4 w-4" />
             RSVP
           </Link>
-        </div>
 
-        <button
-          type="button"
-          className="rounded-full border border-[#e6dbce] bg-white p-2 md:hidden"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((value) => !value)}
-        >
-          {isOpen ? <X className="h-5 w-5 text-ink" /> : <Menu className="h-5 w-5 text-ink" />}
-        </button>
+          <button
+            type="button"
+            className="rounded-full border border-[#e6dbce] bg-white p-2 md:hidden"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((value) => !value)}
+          >
+            {isOpen ? <X className="h-5 w-5 text-ink" /> : <Menu className="h-5 w-5 text-ink" />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (

@@ -54,9 +54,13 @@ function getTimeLeft() {
 }
 
 export default function HomePage() {
-  const [countdown, setCountdown] = useState(getTimeLeft);
+  const [countdown, setCountdown] = useState<ReturnType<typeof getTimeLeft> | null>(null);
 
   useEffect(() => {
+    // Initialize on mount to avoid server/client clock drift causing
+    // hydration mismatches (server-rendered time vs client time).
+    setCountdown(getTimeLeft());
+
     const timer = window.setInterval(() => {
       setCountdown(getTimeLeft());
     }, 1000);
@@ -65,10 +69,10 @@ export default function HomePage() {
   }, []);
 
   const countdownItems = [
-    { label: 'Days', value: countdown.days },
-    { label: 'Hours', value: countdown.hours },
-    { label: 'Minutes', value: countdown.minutes },
-    { label: 'Seconds', value: countdown.seconds },
+    { label: 'Days', value: countdown ? countdown.days : 0 },
+    { label: 'Hours', value: countdown ? countdown.hours : 0 },
+    { label: 'Minutes', value: countdown ? countdown.minutes : 0 },
+    { label: 'Seconds', value: countdown ? countdown.seconds : 0 },
   ];
 
   return (
@@ -181,9 +185,9 @@ export default function HomePage() {
             <div className="rounded-[28px] bg-white p-6 shadow-soft">
               <div className="flex items-center gap-3 text-ink">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
-                  {countdown.isLive ? 'Now' : '⏳'}
+                  {countdown?.isLive ? 'Now' : '⏳'}
                 </span>
-                <span className="font-medium">{countdown.isLive ? 'The celebration is here' : 'Countdown to the celebration'}</span>
+                <span className="font-medium">{countdown?.isLive ? 'The celebration is here' : 'Countdown to the celebration'}</span>
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
