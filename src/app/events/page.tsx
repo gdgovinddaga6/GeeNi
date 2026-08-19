@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Clock3, MapPin, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { EventsStory } from '@/components/events/EventsStory';
 
 const events = [
   {
@@ -53,58 +54,24 @@ const events = [
 ];
 
 export default function EventsPage() {
+  const items = [
+    { id: 'mayra', title: 'MAYRA', subtitle: 'A celebration of blessings, family and traditions.', date: '2 DECEMBER', image: '/events/mayra.jpg' },
+    { id: 'haldi', title: 'HALDI', subtitle: 'A radiant morning filled with color and blessings.', date: '3 DECEMBER', image: '/events/haldi.jpg' },
+    { id: 'sangeet', title: 'SANGEET', subtitle: 'An evening of music, movement and memories.', date: '4 DECEMBER', image: '/events/sangeet.jpg' },
+    { id: 'wedding', title: 'THE WEDDING', subtitle: '', date: '5 DECEMBER', image: '/events/ceremony.jpg' },
+    { id: 'reception', title: 'RECEPTION', subtitle: 'An elegant evening of toasts and celebration.', date: '6 DECEMBER', image: '/events/reception.jpg' },
+  ];
+
   return (
-    <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
-      <div className="max-w-3xl">
+    <div className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
+      <header className="mb-12 text-center">
         <p className="text-sm uppercase tracking-[0.4em] text-rose">Events</p>
-        <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">A weekend of cherished moments</h1>
-        <p className="mt-6 text-lg leading-8 text-muted">
-          Every celebration has been thoughtfully planned to feel warm, graceful, and beautifully paced.
-        </p>
-      </div>
+        <h1 className="mt-3 font-display text-5xl text-ink">OUR CELEBRATIONS</h1>
+        <p className="mt-4 text-lg text-muted">Five moments. One beautiful beginning.</p>
+        <div className="mt-6 text-sm text-muted">#GeeNi</div>
+      </header>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <Image
-          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80"
-          alt="Wedding events at a luxury resort"
-          width={900}
-          height={1100}
-          className="h-[480px] w-full rounded-[32px] object-cover"
-        />
-
-        <div className="space-y-4">
-          {events.map((event) => (
-            <Card key={event.title} className={`border-none bg-gradient-to-br ${event.accent} p-0 shadow-soft`}>
-              <CardContent className="p-5 sm:p-6">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <div className={`text-xs uppercase tracking-[0.3em] ${event.tint}`}>Celebration</div>
-                    <h2 className="mt-1 font-display text-3xl text-ink">{event.title}</h2>
-                    <p className="mt-2 text-sm leading-7 text-[#4f4f4f]">{event.description}</p>
-                  </div>
-                  <div className="rounded-full border border-[#f0e2d5] bg-white/60 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-[#4a4d4d]">
-                    {event.time}
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-4 text-sm text-[#4f4f4f]">
-                  <span className="flex items-center gap-2"><Clock3 className="h-4 w-4" />{event.time}</span>
-                  <span className="flex items-center gap-2"><MapPin className="h-4 w-4" />{event.location}</span>
-                  <span className="flex items-center gap-2"><Sparkles className="h-4 w-4" />{event.dress}</span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-10 flex flex-wrap gap-4">
-        <Button asChild>
-          <Link href="/venue">Open Venue Details <ArrowRight className="ml-2 h-4 w-4" /></Link>
-        </Button>
-        <Button variant="secondary" asChild>
-          <Link href="/rsvp">RSVP Now</Link>
-        </Button>
-      </div>
+      <EventsStory items={items} />
     </div>
   );
 }
