@@ -15,8 +15,7 @@ type EventItem = {
 };
 
 export function EventsStory({ items }: { items: EventItem[] }) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const sentinelRefs = useRef<HTMLDivElement[]>([]);
+  const sentinelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -71,7 +70,7 @@ export function EventsStory({ items }: { items: EventItem[] }) {
           {items.map((it, i) => (
             <section
               key={it.id}
-              ref={(el) => (sentinelRefs.current[i] = el!)}
+              ref={(el: HTMLDivElement | null) => { sentinelRefs.current[i] = el; }}
               className="min-h-screen flex items-center px-6 md:px-8"
               aria-hidden={active !== i}
             >

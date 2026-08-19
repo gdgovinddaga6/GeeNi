@@ -112,18 +112,20 @@ export function MusicToggle() {
 
   useEffect(() => {
     // Create AudioContext and connect media element to help unlocking audio
-    try {
-      const Ctor = (window as any).AudioContext || (window as any).webkitAudioContext;
-      if (!Ctor) return;
-      if (!audioCtxRef.current) audioCtxRef.current = new Ctor();
-      const audio = audioRef.current;
-      if (audio && audioCtxRef.current) {
-        try {
-          const src = audioCtxRef.current.createMediaElementSource(audio);
-          src.connect(audioCtxRef.current.destination);
-        } catch {}
-      }
-    } catch {}
+      try {
+        type Win = Window & { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext };
+        const win = window as Win;
+        const Ctor = win.AudioContext ?? win.webkitAudioContext;
+        if (!Ctor) return;
+        if (!audioCtxRef.current) audioCtxRef.current = new Ctor();
+        const audio = audioRef.current;
+        if (audio && audioCtxRef.current) {
+          try {
+            const src = audioCtxRef.current.createMediaElementSource(audio);
+            src.connect(audioCtxRef.current.destination);
+          } catch {}
+        }
+      } catch {}
   }, []);
 
   const toggle = async () => {

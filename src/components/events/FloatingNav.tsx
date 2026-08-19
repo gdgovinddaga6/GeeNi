@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 
 export function FloatingNav({ count, active, onSelect }: { count: number; active: number; onSelect: (i: number) => void }) {
   return (

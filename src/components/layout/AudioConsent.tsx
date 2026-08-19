@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 
 const STORAGE_KEY = 'geeni:music-enabled';
-const MUSIC_SRC = '/audio/cant-help-falling-in-love.mp3';
 
 export function AudioConsent() {
   const [visible, setVisible] = useState(false);
@@ -34,7 +33,7 @@ export function AudioConsent() {
       <div className="max-w-xl rounded-2xl bg-white p-8 text-center shadow-lg">
         <h2 className="mb-2 text-2xl font-display">Hello, lovely guest!</h2>
         <p className="mb-4 text-sm text-muted">
-          We'd love to play a gentle song in the background to set the mood. May we play soft music while you browse?
+          We would love to play a gentle song in the background to set the mood. May we play soft music while you browse?
         </p>
         <div className="flex justify-center gap-3">
           <button onClick={() => void allow()} className="rounded bg-rose px-4 py-2 text-white">
