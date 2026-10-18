@@ -1,6 +1,6 @@
 import { Phone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { contacts } from '@/lib/contacts';
+import { contacts, formatPhone } from '@/lib/contacts';
 
 export default function ContactPage() {
   return (
@@ -22,7 +22,7 @@ export default function ContactPage() {
             <div className="mt-4 space-y-3 text-sm leading-7 text-muted">
               {contacts.map((contact) => (
                 <p key={contact.name}>
-                  {contact.name}: <a href={`tel:${contact.phone}`} className="text-ink hover:text-rose">{contact.phone}</a>
+                  {contact.name}: <a href={`tel:${contact.phone}`} className="whitespace-nowrap text-ink hover:text-rose">{formatPhone(contact.phone)}</a>
                 </p>
               ))}
             </div>
