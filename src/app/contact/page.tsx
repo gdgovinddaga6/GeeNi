@@ -1,9 +1,9 @@
-import { Mail, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const contacts = [
   { name: 'Ashok Kumar Daga', phone: '9441013301' },
-  { name: 'Manjor Bang', phone: '9885441501' },
+  { name: 'Manoj Bang', phone: '9885441501' },
 ];
 
 export default function ContactPage() {
@@ -17,16 +17,6 @@ export default function ContactPage() {
         </p>
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <Card>
-          <CardContent>
-            <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-rose" />
-              <h2 className="font-display text-2xl text-ink">Email</h2>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-muted">hello@geeni.in</p>
-          </CardContent>
-        </Card>
-
         <Card>
           <CardContent>
             <div className="flex items-center gap-3">

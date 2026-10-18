@@ -14,7 +14,6 @@ export default function EventsPage() {
       <header className="mb-12 text-center">
         <p className="text-sm uppercase tracking-[0.4em] text-rose">Events</p>
         <h1 className="mt-3 font-display text-5xl text-ink">OUR CELEBRATIONS</h1>
-        <p className="mt-4 text-lg text-muted">Five moments. One beautiful beginning.</p>
         <div className="mt-6 text-sm text-muted">#GeeNi</div>
       </header>
 

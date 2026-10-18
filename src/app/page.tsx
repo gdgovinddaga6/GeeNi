@@ -96,9 +96,9 @@ export default function HomePage() {
                 Nidhi <span className="mx-2 text-[#b98d6a]">&</span> Govind
               </h1>
 
-              <div className="mt-8 flex items-center justify-center gap-3 text-lg text-[#3d3d3d] sm:text-2xl">
-                <span className="font-display text-2xl sm:text-4xl">Dec 02, 2026</span>
-                <span className="text-[#b98d6a]">|</span>
+              <div className="mt-8 flex flex-col items-center justify-center gap-1 text-lg text-[#3d3d3d] sm:flex-row sm:gap-3 sm:text-2xl">
+                <span className="whitespace-nowrap font-display text-2xl sm:text-4xl">Nov 30 – Dec 02, 2026</span>
+                <span className="hidden text-[#b98d6a] sm:inline" aria-hidden="true">|</span>
                 <span>Hyderabad</span>
               </div>
             </div>
@@ -117,13 +117,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:px-10">
-        <div className="mb-8 flex items-end justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.4em] text-rose">Guest details</p>
-            <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">Everything guests need, beautifully arranged</h2>
-          </div>
-        </div>
+      <section className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:px-10">
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {quickActions.map((item) => {
             const Icon = item.icon;
@@ -147,11 +141,11 @@ export default function HomePage() {
       <section className="border-y border-[#efe6db] bg-white/60">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <Image
-            src="https://i.postimg.cc/QtzxG11P/PXL-20260412-103757297.jpg"
+            src="/images/geeni-couple.jpg"
             alt="Nidhi and Govind together"
-            width={900}
-            height={1100}
-            className="h-[460px] w-full rounded-[32px] object-cover"
+            width={780}
+            height={1040}
+            className="h-[460px] w-full rounded-[32px] object-cover object-top"
           />
           <div className="flex flex-col justify-center">
             <p className="text-sm uppercase tracking-[0.4em] text-rose">Our Story</p>
@@ -166,45 +160,6 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
-        <Card className="overflow-hidden bg-[#f9efe9] p-0">
-          <div className="grid gap-8 p-8 lg:grid-cols-[1fr_0.8fr] lg:p-10">
-            <div className="flex flex-col justify-center">
-              <p className="text-sm uppercase tracking-[0.4em] text-rose">Featured gathering</p>
-              <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">Wedding Ceremony</h2>
-              <p className="mt-4 max-w-xl text-lg leading-8 text-muted">
-                Join us as the evening unfolds in a setting of warm light, floral charm, and heartfelt blessings under the open sky.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted">
-                <div className="rounded-full border border-[#e9ddd0] bg-white/70 px-4 py-2">Dec 02 · 6:30 PM</div>
-                <div className="rounded-full border border-[#e9ddd0] bg-white/70 px-4 py-2">Traditional attire</div>
-              </div>
-            </div>
-            <div className="rounded-[28px] bg-white p-6 shadow-soft">
-              <div className="flex items-center gap-3 text-ink">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
-                  {countdown?.isLive ? 'Now' : '⏳'}
-                </span>
-                <span className="font-medium">{countdown?.isLive ? 'The celebration is here' : 'Countdown to the celebration'}</span>
-              </div>
-
-              <div className="mt-6 grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
-                {countdownItems.map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-[#eee6dc] bg-[#fcfaf7] p-4">
-                    <p className="font-display text-3xl text-ink">{item.value.toString().padStart(2, '0')}</p>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.3em] text-muted">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <Button asChild className="mt-6 w-full">
-                <Link href="/venue">Open Venue Details</Link>
-              </Button>
-            </div>
-          </div>
-        </Card>
       </section>
     </div>
   );
