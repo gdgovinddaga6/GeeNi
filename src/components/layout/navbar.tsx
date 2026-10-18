@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { CalendarDays, Heart, Menu, X } from 'lucide-react';
+import { Heart, Menu, X } from 'lucide-react';
 import { MusicToggle } from '@/components/layout/music-toggle';
 
 const links = [
@@ -39,14 +39,6 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <MusicToggle />
 
-          <Link
-            href="/rsvp"
-            className="hidden items-center gap-2 rounded-full border border-[#e6dbce] bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-rose hover:text-rose md:inline-flex"
-          >
-            <CalendarDays className="h-4 w-4" />
-            RSVP
-          </Link>
-
           <button
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e6dbce] bg-white md:hidden"
@@ -72,14 +64,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/rsvp"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full border border-[#e6dbce] bg-white px-4 py-3 text-sm font-medium text-ink"
-              onClick={() => setIsOpen(false)}
-            >
-              <CalendarDays className="h-4 w-4" />
-              RSVP
-            </Link>
           </nav>
         </div>
       )}
