@@ -6,7 +6,7 @@ import { formatDay, formatTimeRange, getGoogleCalendarLink, type ScheduleDay } f
 
 export function EventSchedule({ days }: { days: ScheduleDay[] }) {
   return (
-    <section aria-labelledby="schedule-heading" className="mb-16">
+    <section id="schedule" aria-labelledby="schedule-heading" className="mb-16 scroll-mt-24">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <h2 id="schedule-heading" className="font-display text-3xl text-ink">
           Schedule

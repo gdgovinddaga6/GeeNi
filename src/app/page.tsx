@@ -7,7 +7,8 @@ import { ArrowRight, CalendarRange, Camera, MapPin, Sparkles } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { getEvent, toDate } from '@/lib/schedule';
+import { EventCarousel } from '@/components/events/EventCarousel';
+import { featuredEvents, getEvent, toDate } from '@/lib/schedule';
 
 const quickActions = [
   {
@@ -116,6 +117,21 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      <section aria-labelledby="celebrations-heading" className="mx-auto max-w-7xl px-5 pt-16 sm:px-8 lg:px-10">
+        <EventCarousel events={featuredEvents} label="Wedding celebrations">
+          <p className="text-sm uppercase tracking-[0.4em] text-rose">Events</p>
+          <h2 id="celebrations-heading" className="mt-3 font-display text-3xl text-ink sm:text-4xl">
+            Our Celebrations
+          </h2>
+          <Link
+            href="/events#schedule"
+            className="mt-3 inline-flex items-center rounded text-sm text-muted underline-offset-4 hover:text-rose hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose"
+          >
+            See the full schedule <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </Link>
+        </EventCarousel>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:px-10">

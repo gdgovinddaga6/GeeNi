@@ -170,3 +170,21 @@ export function buildScheduleIcs(): string {
     .join('\r\n')
     .concat('\r\n');
 }
+
+export type FeaturedEvent = {
+  id: string;
+  title: string;
+  subtitle?: string;
+  /** Display copy for the time and day, as given by the family. */
+  time: string;
+  day: string;
+  image: string;
+};
+
+export const featuredEvents: FeaturedEvent[] = [
+  { id: 'mayara', title: 'Mayara', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', day: 'Monday, 30th November 2026', image: '/events/mayra.jpg' },
+  { id: 'sangeet', title: 'Sangeet', subtitle: 'An evening of music, movement and memories.', time: '8:31 PM onwards', day: 'Monday, 30th November 2026', image: '/events/sangeet.jpg' },
+  { id: 'haldi', title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', day: 'Tuesday, 1st December 2026', image: '/events/haldi.jpg' },
+  { id: 'reception', title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', day: 'Tuesday, 1st December 2026', image: '/events/reception.jpg' },
+  { id: 'shaadi', title: 'Shaadi', time: '9:31 AM', day: 'Wednesday, 2nd December 2026', image: '/events/ceremony.jpg' },
+];
