@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { CalendarDays, CalendarPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PosterLightbox } from '@/components/events/PosterLightbox';
 import { cn } from '@/lib/utils';
 import {
   featuredEvents,
@@ -48,9 +48,7 @@ function TimelineStop({ event }: { event: ScheduleEvent }) {
           )}
         />
         <article className="flex gap-4 rounded-[24px] border border-[#efe6db] bg-white/80 p-3 shadow-soft sm:gap-6 sm:p-4">
-          <div className="relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-[16px] sm:w-28">
-            <Image src={featured.image} alt="" fill sizes="(min-width: 640px) 112px, 80px" className="object-cover" />
-          </div>
+          <PosterLightbox src={featured.image} title={featured.title} />
           <div className="flex min-w-0 flex-1 flex-col justify-center">
             <time dateTime={event.start} className="text-xs font-medium uppercase tracking-[0.12em] text-rose">
               {featured.time}

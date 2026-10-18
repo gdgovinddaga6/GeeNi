@@ -50,3 +50,8 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Keep the page from scrolling behind an open modal. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
