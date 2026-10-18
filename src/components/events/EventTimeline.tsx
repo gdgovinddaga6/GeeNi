@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { CalendarDays, CalendarPlus } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { AddToCalendar } from '@/components/calendar/AddToCalendar';
 import { PosterLightbox } from '@/components/events/PosterLightbox';
 import { cn } from '@/lib/utils';
 import {
@@ -94,13 +93,12 @@ export function EventTimeline({ days }: { days: ScheduleDay[] }) {
       <h2 id="schedule-heading" className="sr-only">
         Schedule
       </h2>
-      <div className="mb-10 flex justify-center">
-        <Button asChild variant="secondary" size="sm">
-          <Link href="/wedding-invite.ics">
-            <CalendarDays className="mr-2 h-4 w-4" aria-hidden="true" />
-            Add all events to calendar
-          </Link>
-        </Button>
+      <div className="mb-10 flex flex-col items-center gap-3">
+        <p className="flex items-center gap-2 text-sm font-medium text-ink">
+          <CalendarDays className="h-4 w-4 text-rose" aria-hidden="true" />
+          Add all events to your calendar
+        </p>
+        <AddToCalendar className="w-full max-w-md sm:flex-row sm:[&>*]:flex-1" />
       </div>
 
       <div className="relative">

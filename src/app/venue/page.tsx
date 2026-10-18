@@ -2,13 +2,12 @@ import Link from 'next/link';
 import { ArrowRight, CalendarDays, Compass, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { VENUE_ADDRESS, getEvent, getGoogleCalendarLink } from '@/lib/schedule';
+import { AddToCalendar } from '@/components/calendar/AddToCalendar';
+import { VENUE_ADDRESS } from '@/lib/schedule';
 
 const mapsLink = 'https://maps.app.goo.gl/akvYXiouz2NTd6bk7';
 const mapEmbedSrc =
   'https://www.google.com/maps?q=Serene+Resort+%26+Convention,+Peddashapur,+Shamshabad,+Telangana&z=15&output=embed';
-
-const googleCalendarLink = getGoogleCalendarLink(getEvent('phere'));
 
 export default function VenuePage() {
   return (
@@ -64,18 +63,7 @@ export default function VenuePage() {
               <CalendarDays className="h-5 w-5 shrink-0 text-rose" />
               <h2 className="font-display text-2xl text-ink">Add to Calendar</h2>
             </div>
-            <div className="mt-4 flex flex-col gap-3">
-              <Button asChild variant="secondary" className="justify-center">
-                <Link href="/wedding-invite.ics" target="_blank" rel="noreferrer">
-                  Apple Calendar
-                </Link>
-              </Button>
-              <Button asChild variant="secondary" className="justify-center">
-                <Link href={googleCalendarLink} target="_blank" rel="noreferrer">
-                  Google Calendar
-                </Link>
-              </Button>
-            </div>
+            <AddToCalendar className="mt-4" />
           </CardContent>
         </Card>
       </div>
