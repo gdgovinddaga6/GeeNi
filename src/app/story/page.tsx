@@ -57,7 +57,7 @@ export default function StoryPage() {
         <div className="space-y-6">
           {storySections.map((section) => (
             <Card key={section.title} className="border-[#efe3d5] bg-white/85">
-              <CardContent className="p-6">
+              <CardContent className="sm:p-6">
                 <h2 className="font-display text-3xl text-ink">{section.title}</h2>
                 <p className="mt-3 text-base leading-8 text-muted">{section.body}</p>
               </CardContent>
@@ -65,9 +65,9 @@ export default function StoryPage() {
           ))}
 
           <Card className="border-[#efe3d5] bg-[#f9efe9]">
-            <CardContent className="p-6">
+            <CardContent className="sm:p-6">
               <div className="flex items-center gap-3 text-ink">
-                <Heart className="h-5 w-5 text-rose" />
+                <Heart className="h-5 w-5 shrink-0 text-rose" />
                 <p className="font-display text-3xl">Nidhi & Govind</p>
               </div>
               <p className="mt-3 text-lg text-muted">#GeeNi</p>

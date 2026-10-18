@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <Card className="mt-10 border-[#efe3d5] bg-white/85">
         <CardContent>
           <div className="flex items-start gap-3">
-            <ShieldCheck className="mt-1 h-5 w-5 text-rose" />
+            <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-rose" />
             <p className="text-sm leading-7 text-muted">
               This experience is being built with privacy-minded defaults and will continue to evolve with guest trust and security in mind.
             </p>

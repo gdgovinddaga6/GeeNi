@@ -114,6 +114,22 @@ planning/
 
 ---
 
+# Local Development
+
+```
+npm install
+npm run dev
+```
+
+`npm run dev` serves the site at http://localhost:3000 and reloads on every change.
+It builds into `.next-dev/`, separate from `npm run build` (`.next/`), so you can run a
+production build, lint or type check while the dev server keeps running.
+
+Avoid `next start` for day-to-day work: it serves the last production build, and
+any new `npm run build` replaces that build underneath it.
+
+---
+
 # Development Philosophy
 
 Everything begins with documentation.

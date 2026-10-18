@@ -22,7 +22,7 @@ export default function UploadPage() {
         <Card className="border-[#efe3d5] bg-white/85">
           <CardContent>
             <div className="flex items-center gap-3">
-              <CloudUpload className="h-5 w-5 text-rose" />
+              <CloudUpload className="h-5 w-5 shrink-0 text-rose" />
               <h2 className="font-display text-2xl text-ink">How it works</h2>
             </div>
             <div className="mt-6 space-y-4">
@@ -33,7 +33,7 @@ export default function UploadPage() {
                 'Confirm upload and see it appear in the gallery',
               ].map((step) => (
                 <div key={step} className="flex items-start gap-3 rounded-2xl border border-[#efe3d5] bg-[#fcfaf7] p-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-rose" />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-rose" />
                   <p className="text-sm leading-7 text-muted">{step}</p>
                 </div>
               ))}
@@ -47,7 +47,7 @@ export default function UploadPage() {
       <Card className="mt-10 border-[#efe3d5] bg-[#f9efe9]">
         <CardContent className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-3">
-            <Smartphone className="h-5 w-5 text-rose" />
+            <Smartphone className="h-5 w-5 shrink-0 text-rose" />
             <p className="text-sm leading-7 text-muted">Optimized for mobile, built for a guest experience that feels effortless.</p>
           </div>
           <p className="text-sm font-medium text-ink">Upload support for photos, videos, and HEIC files</p>

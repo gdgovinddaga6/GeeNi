@@ -7,6 +7,7 @@ import { ArrowRight, CalendarRange, Camera, MapPin, Sparkles } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { getEvent, toDate } from '@/lib/schedule';
 
 const quickActions = [
   {
@@ -35,7 +36,7 @@ const quickActions = [
   },
 ];
 
-const weddingDate = new Date('2026-12-02T18:30:00+05:30');
+const weddingDate = toDate(getEvent('phere').start);
 
 function getTimeLeft() {
   const difference = weddingDate.getTime() - Date.now();
@@ -101,9 +102,15 @@ export default function HomePage() {
                 <span className="hidden text-[#b98d6a] sm:inline" aria-hidden="true">|</span>
                 <span>Hyderabad</span>
               </div>
+
+              <Button asChild size="lg" className="mt-8">
+                <Link href="/events">
+                  View the celebrations <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
             </div>
 
-            <div className="mt-10 grid gap-4 rounded-[28px] bg-[#f2efe8]/70 p-4 sm:grid-cols-2 lg:grid-cols-4 lg:p-6">
+            <div className="mt-10 grid grid-cols-2 gap-3 rounded-[28px] bg-[#f2efe8]/70 p-3 sm:gap-4 sm:p-4 lg:grid-cols-4 lg:p-6">
               {countdownItems.map((item) => (
                 <div key={item.label} className="rounded-[20px] border border-[#e8e2d7] bg-white/30 p-4 text-center backdrop-blur-sm">
                   <p className="font-display text-4xl leading-none text-[#2d2d2d] sm:text-5xl">
@@ -117,28 +124,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {quickActions.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Link key={item.href} href={item.href} className="group block h-full">
-                <Card className="h-full transition duration-300 group-hover:-translate-y-1 group-hover:border-[#d9b7a9] group-hover:shadow-soft">
-                  <CardContent className="h-full">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-display text-2xl text-ink">{item.title}</h3>
-                    <p className="text-sm leading-7 text-muted">{item.description}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="border-y border-[#efe6db] bg-white/60">
+      <section className="border-b border-[#efe6db] bg-white/60">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <Image
             src="/images/geeni-couple.jpg"
@@ -159,6 +145,27 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {quickActions.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link key={item.href} href={item.href} className="group block h-full">
+                <Card className="h-full transition duration-300 group-hover:-translate-y-1 group-hover:border-[#d9b7a9] group-hover:shadow-soft">
+                  <CardContent className="h-full">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-2xl text-ink">{item.title}</h3>
+                    <p className="text-sm leading-7 text-muted">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>

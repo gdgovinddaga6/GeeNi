@@ -28,7 +28,7 @@ export default function FAQPage() {
           <Card key={faq.question}>
             <CardContent>
               <div className="flex items-start gap-3">
-                <MessageCircleQuestion className="mt-1 h-5 w-5 text-rose" />
+                <MessageCircleQuestion className="mt-1 h-5 w-5 shrink-0 text-rose" />
                 <div>
                   <h2 className="font-display text-2xl text-ink">{faq.question}</h2>
                   <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>

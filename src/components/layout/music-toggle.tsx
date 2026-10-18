@@ -190,7 +190,7 @@ export function MusicToggle() {
         aria-disabled={available === false}
         disabled={available === false}
         className={
-          'rounded-full border border-[#e6dbce] bg-white p-2 text-ink transition hover:border-rose hover:text-rose focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2 focus-visible:ring-offset-ivory' +
+          'flex h-11 w-11 items-center justify-center rounded-full border border-[#e6dbce] bg-white text-ink transition md:h-auto md:w-auto md:p-2 hover:border-rose hover:text-rose focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2 focus-visible:ring-offset-ivory' +
           (available === false ? ' opacity-50 cursor-not-allowed' : '')
         }
       >

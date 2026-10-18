@@ -20,8 +20,6 @@ Home
 
 /venue
 
-/rsvp
-
 /gallery
 
 /upload
