@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Mail } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -16,13 +15,6 @@ export function Footer() {
           <Link href="/contact" className="transition hover:text-ink">
             Contact
           </Link>
-          <Link href="/faq" className="transition hover:text-ink">
-            FAQ
-          </Link>
-          <a href="mailto:hello@geeni.in" className="flex items-center gap-2 transition hover:text-ink">
-            <Mail className="h-4 w-4" />
-            hello@geeni.in
-          </a>
         </div>
       </div>
     </footer>
