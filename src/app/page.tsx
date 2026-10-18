@@ -7,6 +7,7 @@ import { ArrowRight, CalendarRange, Camera, MapPin, Sparkles } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { getEvent, toDate } from '@/lib/schedule';
 
 const quickActions = [
   {
@@ -35,7 +36,7 @@ const quickActions = [
   },
 ];
 
-const weddingDate = new Date('2026-12-02T18:30:00+05:30');
+const weddingDate = toDate(getEvent('phere').start);
 
 function getTimeLeft() {
   const difference = weddingDate.getTime() - Date.now();
