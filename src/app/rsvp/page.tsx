@@ -16,7 +16,7 @@ export default function RSVPPage() {
       <Card className="mt-10 border-[#efe3d5] bg-white/85">
         <CardContent>
           <div className="flex items-center gap-3">
-            <CalendarHeart className="h-5 w-5 text-rose" />
+            <CalendarHeart className="h-5 w-5 shrink-0 text-rose" />
             <h2 className="font-display text-2xl text-ink">RSVP details</h2>
           </div>
           <p className="mt-4 text-sm leading-7 text-muted">

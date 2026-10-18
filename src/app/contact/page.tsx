@@ -20,7 +20,7 @@ export default function ContactPage() {
         <Card>
           <CardContent>
             <div className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-rose" />
+              <Phone className="h-5 w-5 shrink-0 text-rose" />
               <h2 className="font-display text-2xl text-ink">RSVP contacts</h2>
             </div>
             <div className="mt-4 space-y-3 text-sm leading-7 text-muted">

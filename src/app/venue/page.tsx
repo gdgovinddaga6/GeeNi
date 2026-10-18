@@ -20,7 +20,7 @@ export default function VenuePage() {
           <Card>
             <CardContent>
               <div className="flex items-start gap-3">
-                <MapPin className="mt-1 h-5 w-5 text-rose" />
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-rose" />
                 <div>
                   <h2 className="font-display text-2xl text-ink">Address</h2>
                   <p className="mt-2 text-sm leading-7 text-muted">
@@ -44,7 +44,7 @@ export default function VenuePage() {
         <Card>
           <CardContent>
             <div className="flex items-center gap-3">
-              <Compass className="h-5 w-5 text-rose" />
+              <Compass className="h-5 w-5 shrink-0 text-rose" />
               <h2 className="font-display text-2xl text-ink">Directions</h2>
             </div>
             <p className="mt-4 text-sm leading-7 text-muted">
@@ -61,7 +61,7 @@ export default function VenuePage() {
         <Card>
           <CardContent>
             <div className="flex items-center gap-3">
-              <CalendarDays className="h-5 w-5 text-rose" />
+              <CalendarDays className="h-5 w-5 shrink-0 text-rose" />
               <h2 className="font-display text-2xl text-ink">Add to Calendar</h2>
             </div>
             <div className="mt-4 flex flex-col gap-3">

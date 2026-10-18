@@ -105,7 +105,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-4 rounded-[28px] bg-[#f2efe8]/70 p-4 sm:grid-cols-2 lg:grid-cols-4 lg:p-6">
+            <div className="mt-10 grid grid-cols-2 gap-3 rounded-[28px] bg-[#f2efe8]/70 p-3 sm:gap-4 sm:p-4 lg:grid-cols-4 lg:p-6">
               {countdownItems.map((item) => (
                 <div key={item.label} className="rounded-[20px] border border-[#e8e2d7] bg-white/30 p-4 text-center backdrop-blur-sm">
                   <p className="font-display text-4xl leading-none text-[#2d2d2d] sm:text-5xl">

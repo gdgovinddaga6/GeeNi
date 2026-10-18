@@ -32,8 +32,8 @@ export function UploadForm() {
     <Card className="mt-10 border-[#efe3d5] bg-white/85">
       <CardContent>
         <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-3">
-            <UploadCloud className="h-5 w-5 text-rose" />
+          <div className="flex items-start gap-3">
+            <UploadCloud className="mt-1.5 h-5 w-5 shrink-0 text-rose" />
             <div>
               <h2 className="font-display text-2xl text-ink">Upload Your Memories</h2>
               <p className="text-sm text-muted">Select photos or videos from your device and then confirm to add them to the gallery.</p>
@@ -60,7 +60,7 @@ export function UploadForm() {
             </Button>
             {status && (
               <div className="flex items-center gap-2 rounded-3xl border border-[#e9ddd0] bg-[#f7f0ea] px-4 py-3 text-sm text-ink">
-                <CheckCircle2 className="h-4 w-4 text-rose" />
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-rose" />
                 <span>{status}</span>
               </div>
             )}

@@ -49,7 +49,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="rounded-full border border-[#e6dbce] bg-white p-2 md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e6dbce] bg-white md:hidden"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
