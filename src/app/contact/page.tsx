@@ -6,10 +6,10 @@ export default function ContactPage() {
   return (
     <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
       <div className="max-w-3xl">
-        <p className="text-sm uppercase tracking-[0.4em] text-rose">RSVP</p>
+        <p className="text-sm uppercase tracking-[0.4em] text-rose">Contact</p>
         <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">We&apos;re delighted to celebrate with you</h1>
         <p className="mt-6 text-lg leading-8 text-muted">
-          Please reach out to us directly for RSVP and event details. Your presence means the world to us.
+          Please reach out to us directly for any event details. Your presence means the world to us.
         </p>
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -17,7 +17,7 @@ export default function ContactPage() {
           <CardContent>
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5 shrink-0 text-rose" />
-              <h2 className="font-display text-2xl text-ink">RSVP contacts</h2>
+              <h2 className="font-display text-2xl text-ink">Family contacts</h2>
             </div>
             <div className="mt-4 space-y-3 text-sm leading-7 text-muted">
               {contacts.map((contact) => (
