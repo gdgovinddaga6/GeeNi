@@ -124,28 +124,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {quickActions.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Link key={item.href} href={item.href} className="group block h-full">
-                <Card className="h-full transition duration-300 group-hover:-translate-y-1 group-hover:border-[#d9b7a9] group-hover:shadow-soft">
-                  <CardContent className="h-full">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-display text-2xl text-ink">{item.title}</h3>
-                    <p className="text-sm leading-7 text-muted">{item.description}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="border-y border-[#efe6db] bg-white/60">
+      <section className="border-b border-[#efe6db] bg-white/60">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <Image
             src="/images/geeni-couple.jpg"
@@ -166,6 +145,27 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {quickActions.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link key={item.href} href={item.href} className="group block h-full">
+                <Card className="h-full transition duration-300 group-hover:-translate-y-1 group-hover:border-[#d9b7a9] group-hover:shadow-soft">
+                  <CardContent className="h-full">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-2xl text-ink">{item.title}</h3>
+                    <p className="text-sm leading-7 text-muted">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>
