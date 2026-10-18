@@ -94,12 +94,6 @@ const dayFormat = new Intl.DateTimeFormat('en-IN', {
   timeZone: 'Asia/Kolkata',
 });
 
-const shortDayFormat = new Intl.DateTimeFormat('en-IN', {
-  day: 'numeric',
-  month: 'long',
-  timeZone: 'Asia/Kolkata',
-});
-
 export function formatTime(local: string): string {
   return timeFormat.format(toDate(local)).toUpperCase();
 }
@@ -111,10 +105,6 @@ export function formatTimeRange(event: ScheduleEvent): string {
 
 export function formatDay(date: string): string {
   return dayFormat.format(toDate(`${date}T12:00`));
-}
-
-export function formatShortDay(local: string): string {
-  return shortDayFormat.format(toDate(local));
 }
 
 /** `YYYYMMDDTHHmmssZ`, the UTC form used by iCalendar and Google Calendar links. */

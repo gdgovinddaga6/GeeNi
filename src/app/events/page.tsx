@@ -1,19 +1,14 @@
 import { EventSchedule } from '@/components/events/EventSchedule';
 import { EventsStory } from '@/components/events/EventsStory';
-import { formatShortDay, formatTimeRange, getEvent, schedule } from '@/lib/schedule';
-
-function eventDate(id: string) {
-  const event = getEvent(id);
-  return `${formatShortDay(event.start)} · ${formatTimeRange(event)}`.toUpperCase();
-}
+import { schedule } from '@/lib/schedule';
 
 export default function EventsPage() {
   const items = [
-    { id: 'mayra', title: 'MAYRA', subtitle: 'A celebration of blessings, family and traditions.', date: eventDate('mayra'), image: '/events/mayra.jpg' },
-    { id: 'sangeet', title: 'SANGEET', subtitle: 'An evening of music, movement and memories.', date: eventDate('sangeet'), image: '/events/sangeet.jpg' },
-    { id: 'haldi', title: 'HALDI', subtitle: 'A radiant afternoon filled with color and blessings.', date: eventDate('haldi'), image: '/events/haldi.jpg' },
-    { id: 'reception', title: 'RECEPTION', subtitle: 'An elegant evening of toasts and celebration.', date: eventDate('reception'), image: '/events/reception.jpg' },
-    { id: 'wedding', title: 'THE WEDDING', subtitle: '', date: eventDate('phere'), image: '/events/ceremony.jpg' },
+    { id: 'mayra', title: 'MAYARA', subtitle: 'A celebration of blessings, family and traditions.', date: '5:30 PM onwards | Monday, 30th November 2026', image: '/events/mayra.jpg' },
+    { id: 'sangeet', title: 'SANGEET', subtitle: 'An evening of music, movement and memories.', date: '8:31 PM onwards | Monday, 30th November 2026', image: '/events/sangeet.jpg' },
+    { id: 'haldi', title: 'HALDI', subtitle: 'A radiant afternoon filled with color and blessings.', date: '1:31 PM onwards | Tuesday, 1st December 2026', image: '/events/haldi.jpg' },
+    { id: 'reception', title: 'RECEPTION', subtitle: 'An elegant evening of toasts and celebration.', date: '8:31 PM onwards | Tuesday, 1st December 2026', image: '/events/reception.jpg' },
+    { id: 'wedding', title: 'SHAADI', subtitle: '', date: '9:31 AM | Wednesday, 2nd December 2026', image: '/events/ceremony.jpg' },
   ];
 
   return (
