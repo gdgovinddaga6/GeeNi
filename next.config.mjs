@@ -1,5 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import { PHASE_DEVELOPMENT_SERVER } from 'next/constants.js';
+
+/** @type {(phase: string) => import('next').NextConfig} */
+const nextConfig = (phase) => ({
+  // `next dev` gets its own build folder so `next build` can run without breaking a running dev server.
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? '.next-dev' : '.next',
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -17,6 +21,6 @@ const nextConfig = {
       },
     ],
   },
-};
+});
 
 export default nextConfig;
