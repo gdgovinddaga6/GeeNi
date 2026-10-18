@@ -1,10 +1,6 @@
 import { Phone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
-const contacts = [
-  { name: 'Ashok Kumar Daga', phone: '9441013301' },
-  { name: 'Manoj Bang', phone: '9885441501' },
-];
+import { contacts } from '@/lib/contacts';
 
 export default function ContactPage() {
   return (

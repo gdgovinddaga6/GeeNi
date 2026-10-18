@@ -3,12 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ArrowRight, CalendarRange, Camera, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarRange, Camera, MapPin, Phone, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { EventCarousel } from '@/components/events/EventCarousel';
-import { featuredEvents, getEvent, toDate } from '@/lib/schedule';
+import { contacts } from '@/lib/contacts';
+import { getEvent, toDate } from '@/lib/schedule';
 
 const quickActions = [
   {
@@ -103,6 +103,12 @@ export default function HomePage() {
                 <span className="hidden text-[#b98d6a] sm:inline" aria-hidden="true">|</span>
                 <span>Hyderabad</span>
               </div>
+
+              <Button asChild size="lg" className="mt-8">
+                <Link href="/events">
+                  View the celebrations <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
             </div>
 
             <div className="mt-10 grid grid-cols-2 gap-3 rounded-[28px] bg-[#f2efe8]/70 p-3 sm:gap-4 sm:p-4 lg:grid-cols-4 lg:p-6">
@@ -117,21 +123,6 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
-      </section>
-
-      <section aria-labelledby="celebrations-heading" className="mx-auto max-w-7xl px-5 pt-16 sm:px-8 lg:px-10">
-        <EventCarousel events={featuredEvents} label="Wedding celebrations">
-          <p className="text-sm uppercase tracking-[0.4em] text-rose">Events</p>
-          <h2 id="celebrations-heading" className="mt-3 font-display text-3xl text-ink sm:text-4xl">
-            Our Celebrations
-          </h2>
-          <Link
-            href="/events#schedule"
-            className="mt-3 inline-flex items-center rounded text-sm text-muted underline-offset-4 hover:text-rose hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose"
-          >
-            See the full schedule <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-          </Link>
-        </EventCarousel>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 lg:px-10">
@@ -177,6 +168,31 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
+      </section>
+
+      <section aria-labelledby="contact-heading" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
+        <p className="text-sm uppercase tracking-[0.4em] text-rose">Contact</p>
+        <h2 id="contact-heading" className="mt-3 font-display text-3xl text-ink sm:text-4xl">
+          Questions? Give us a call.
+        </h2>
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+          {contacts.map((contact) => (
+            <li key={contact.phone}>
+              <a
+                href={`tel:${contact.phone}`}
+                className="group flex items-center gap-4 rounded-[24px] border border-[#efe6db] bg-white/80 p-5 shadow-soft transition hover:border-[#d9b7a9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#f7efe7] text-rose">
+                  <Phone className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-display text-2xl text-ink">{contact.name}</span>
+                  <span className="block text-sm tabular-nums text-muted group-hover:text-rose">{contact.phone}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

@@ -171,20 +171,19 @@ export function buildScheduleIcs(): string {
     .concat('\r\n');
 }
 
+// The main celebrations, shown as large stops on the events timeline. Keyed by schedule event id.
 export type FeaturedEvent = {
-  id: string;
   title: string;
   subtitle?: string;
-  /** Display copy for the time and day, as given by the family. */
+  /** Display copy for the time, as given by the family. */
   time: string;
-  day: string;
   image: string;
 };
 
-export const featuredEvents: FeaturedEvent[] = [
-  { id: 'mayara', title: 'Mayara', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', day: 'Monday, 30th November 2026', image: '/events/mayra.jpg' },
-  { id: 'sangeet', title: 'Sangeet', subtitle: 'An evening of music, movement and memories.', time: '8:31 PM onwards', day: 'Monday, 30th November 2026', image: '/events/sangeet.jpg' },
-  { id: 'haldi', title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', day: 'Tuesday, 1st December 2026', image: '/events/haldi.jpg' },
-  { id: 'reception', title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', day: 'Tuesday, 1st December 2026', image: '/events/reception.jpg' },
-  { id: 'shaadi', title: 'Shaadi', time: '9:31 AM', day: 'Wednesday, 2nd December 2026', image: '/events/ceremony.jpg' },
-];
+export const featuredEvents: Record<string, FeaturedEvent> = {
+  mayra: { title: 'Mayara', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', image: '/events/mayra.jpg' },
+  sangeet: { title: 'Sangeet', subtitle: 'An evening of music, movement and memories.', time: '8:31 PM onwards', image: '/events/sangeet.jpg' },
+  haldi: { title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', image: '/events/haldi.jpg' },
+  reception: { title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', image: '/events/reception.jpg' },
+  phere: { title: 'Shaadi', time: '9:31 AM', image: '/events/ceremony.jpg' },
+};
