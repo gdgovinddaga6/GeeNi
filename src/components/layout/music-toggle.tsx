@@ -57,11 +57,14 @@ export function MusicToggle() {
   }, []);
 
   useEffect(() => {
-      // Only auto-attempt playback if the guest explicitly granted permission.
-      // Treat legacy 'true' value as unset so we always ask for consent.
-      const pref = window.localStorage.getItem(STORAGE_KEY);
-      if (pref === 'denied' || pref === 'false') return;
-      if (pref !== 'granted') return;
+    const pref = window.localStorage.getItem(STORAGE_KEY);
+
+    if (pref === null) {
+      window.localStorage.setItem(STORAGE_KEY, 'false');
+      return;
+    }
+
+    if (pref !== 'granted') return;
 
     const resume = () => void play();
     let cancelled = false;
@@ -80,15 +83,6 @@ export function MusicToggle() {
       window.removeEventListener('pointerdown', resume);
       window.removeEventListener('keydown', resume);
     };
-  }, [play]);
-
-  // Listen for consent granted event dispatched by the global consent overlay.
-  useEffect(() => {
-    const handler = () => {
-      void play();
-    };
-    window.addEventListener('geeni:audio-consent', handler as EventListener);
-    return () => window.removeEventListener('geeni:audio-consent', handler as EventListener);
   }, [play]);
 
   useEffect(() => {

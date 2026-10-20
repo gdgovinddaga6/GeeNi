@@ -26,36 +26,20 @@ export const schedule: ScheduleDay[] = [
   {
     date: '2026-11-30',
     events: [
-      { id: 'ghee-pilai', name: 'Ghee Pilai', start: '2026-11-30T15:01' },
-      // TODO: confirm the name of this ritual; the handwritten schedule is hard to read here.
-      { id: 'bana-banana', name: 'Bana Banana', start: '2026-11-30T15:31' },
-      { id: 'mayra', name: 'Mayra', start: '2026-11-30T17:30' },
-      { id: 'milni', name: 'Milni', start: '2026-11-30T18:00' },
-      { id: 'tilak', name: 'Tilak', start: '2026-11-30T19:31' },
+      { id: 'mayara', name: 'Mayara', start: '2026-11-30T17:30' },
       { id: 'sangeet', name: 'Sangeet', start: '2026-11-30T20:31' },
     ],
   },
   {
     date: '2026-12-01',
     events: [
-      { id: 'chaak-muhurat', name: 'Chaak Muhurat', start: '2026-12-01T08:01' },
-      { id: 'vinayak-sthapana', name: 'Vinayak Sthapana', start: '2026-12-01T10:31' },
-      { id: 'lunch-dec-1', name: 'Lunch', start: '2026-12-01T12:00', end: '2026-12-01T13:00' },
       { id: 'haldi', name: 'Haldi', start: '2026-12-01T13:31', end: '2026-12-01T15:30' },
-      { id: 'nikasi', name: 'Nikasi', start: '2026-12-01T17:01' },
-      { id: 'toran-baraat-swagat', name: 'Toran & Baraat Swagat', start: '2026-12-01T18:31' },
       { id: 'reception', name: 'Reception', start: '2026-12-01T20:31' },
     ],
   },
   {
     date: '2026-12-02',
-    events: [
-      // TODO: confirm the name of this ritual; the handwritten schedule is hard to read here.
-      { id: 'varmala', name: 'Varmala', start: '2026-12-02T08:31' },
-      { id: 'phere', name: 'Phere', start: '2026-12-02T09:31' },
-      { id: 'sajjan-goth', name: 'Lunch – Sajjan Goth', start: '2026-12-02T11:31' },
-      { id: 'pehravani', name: 'Pehravani', start: '2026-12-02T12:01' },
-    ],
+    events: [{ id: 'phere', name: 'Phere', start: '2026-12-02T09:31' }],
   },
 ];
 
@@ -181,9 +165,9 @@ export type FeaturedEvent = {
 };
 
 export const featuredEvents: Record<string, FeaturedEvent> = {
-  mayra: { title: 'Mayara', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', image: '/events/mayra.jpg' },
+  mayara: { title: 'Mayara', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', image: '/events/mayra.jpg' },
   sangeet: { title: 'Sangeet', subtitle: 'An evening of music, movement and memories.', time: '8:31 PM onwards', image: '/events/sangeet.jpg' },
   haldi: { title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', image: '/events/haldi.jpg' },
   reception: { title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', image: '/events/reception.jpg' },
-  phere: { title: 'Shaadi', time: '9:31 AM', image: '/events/ceremony.jpg' },
+  phere: { title: 'Phere', time: '9:31 AM', image: '/events/ceremony.jpg' },
 };

@@ -91,7 +91,7 @@ export default function HomePage() {
                 SAVE THE DATE
               </p>
               <p className="mt-3 font-display text-xl italic text-[#4a4d4d] sm:text-2xl">
-                for the wedding of
+                for the wedding celebration of
               </p>
               <h1 className="mt-5 font-display text-5xl leading-none text-[#2d2d2d] sm:text-7xl lg:text-[7rem]">
                 Nidhi <span className="mx-2 text-[#b98d6a]">&</span> Govind
