@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { ArrowRight, CalendarRange, Camera, MapPin, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight, CalendarRange, Camera, Heart, MapPin, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getEvent, toDate } from '@/lib/schedule';
@@ -56,6 +56,8 @@ function getTimeLeft() {
 
 export default function HomePage() {
   const [countdown, setCountdown] = useState<ReturnType<typeof getTimeLeft> | null>(null);
+  const [showPhotoLike, setShowPhotoLike] = useState(false);
+  const lastTapRef = useRef<number | null>(null);
 
   useEffect(() => {
     // Initialize on mount to avoid server/client clock drift causing
@@ -68,6 +70,31 @@ export default function HomePage() {
 
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!showPhotoLike) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => setShowPhotoLike(false), 900);
+    return () => window.clearTimeout(timeout);
+  }, [showPhotoLike]);
+
+  const triggerPhotoLike = () => {
+    setShowPhotoLike(true);
+  };
+
+  const handlePhotoTap = () => {
+    const now = Date.now();
+
+    if (lastTapRef.current && now - lastTapRef.current < 280) {
+      triggerPhotoLike();
+      lastTapRef.current = null;
+      return;
+    }
+
+    lastTapRef.current = now;
+  };
 
   const countdownItems = [
     { label: 'Days', value: countdown ? countdown.days : 0 },
@@ -93,8 +120,10 @@ export default function HomePage() {
               <p className="mt-3 font-display text-xl italic text-[#4a4d4d] sm:text-2xl">
                 for the wedding celebration of
               </p>
-              <h1 className="mt-5 font-display text-5xl leading-none text-[#2d2d2d] sm:text-7xl lg:text-[7rem]">
-                Nidhi <span className="mx-2 text-[#b98d6a]">&</span> Govind
+              <h1 className="mt-5 flex flex-col items-center justify-center font-display text-5xl leading-none text-[#2d2d2d] sm:flex-row sm:gap-2 sm:text-7xl lg:text-[7rem]">
+                <span className="block">Nidhi</span>
+                <span className="my-1 text-[#b98d6a] sm:mx-1 sm:my-0">&</span>
+                <span className="block">Govind</span>
               </h1>
 
               <div className="mt-8 flex flex-col items-center justify-center gap-1 text-lg text-[#3d3d3d] sm:flex-row sm:gap-3 sm:text-2xl">
@@ -126,13 +155,32 @@ export default function HomePage() {
 
       <section className="border-b border-[#efe6db] bg-white/60">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
-          <Image
-            src="/images/geeni-couple.jpg"
-            alt="Nidhi and Govind together"
-            width={780}
-            height={1040}
-            className="h-[460px] w-full rounded-[32px] object-cover object-top"
-          />
+          <div className="relative overflow-hidden rounded-[32px]">
+            <Image
+              src="/images/geeni-couple.jpg"
+              alt="Nidhi and Govind together"
+              width={780}
+              height={1040}
+              onDoubleClick={triggerPhotoLike}
+              onTouchStart={handlePhotoTap}
+              className="h-[460px] w-full rounded-[32px] object-cover object-top"
+            />
+
+            <AnimatePresence>
+              {showPhotoLike && (
+                <motion.div
+                  key="photo-heart"
+                  initial={{ opacity: 0, scale: 0.25 }}
+                  animate={{ opacity: 1, scale: [0.7, 1.18, 1], rotate: [0, -8, 6, 0] }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                >
+                  <Heart className="h-24 w-24 fill-[#ff5f7d] text-[#ff5f7d] drop-shadow-[0_18px_35px_rgba(255,95,125,0.45)] sm:h-28 sm:w-28" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <div className="flex flex-col justify-center">
             <p className="text-sm uppercase tracking-[0.4em] text-rose">Our Story</p>
             <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">It started with a rishta.</h2>
