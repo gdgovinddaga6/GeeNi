@@ -165,9 +165,9 @@ export type FeaturedEvent = {
 };
 
 export const featuredEvents: Record<string, FeaturedEvent> = {
-  mayara: { title: 'Mayara', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', image: '/events/mayra.jpg' },
-  sangeet: { title: 'Sangeet', subtitle: 'An evening of music, movement and memories.', time: '8:31 PM onwards', image: '/events/sangeet.jpg' },
-  haldi: { title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', image: '/events/haldi.jpg' },
-  reception: { title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', image: '/events/reception.jpg' },
-  phere: { title: 'Phere', time: '9:31 AM', image: '/events/ceremony.jpg' },
+  mayara: { title: 'Mayra', subtitle: 'A celebration of blessings, family and traditions.', time: '5:30 PM onwards', image: '/events/mayra.png' },
+  sangeet: { title: 'Sangeet', subtitle: 'An evening of music, movement and memories.', time: '8:31 PM onwards', image: '/events/sangeet.png' },
+  haldi: { title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', image: '/events/haldi.png' },
+  reception: { title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', image: '/events/reception.png' },
+  phere: { title: 'Phere', time: '9:31 AM', image: '/events/phere.png' },
 };
