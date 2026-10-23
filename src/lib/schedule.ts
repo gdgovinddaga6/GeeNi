@@ -170,4 +170,4 @@ export const featuredEvents: Record<string, FeaturedEvent> = {
   haldi: { title: 'Haldi', subtitle: 'A radiant afternoon filled with color and blessings.', time: '1:31 PM onwards', image: '/events/haldi.png' },
   reception: { title: 'Reception', subtitle: 'An elegant evening of toasts and celebration.', time: '8:31 PM onwards', image: '/events/reception.png' },
   phere: { title: 'Phere', time: '9:31 AM', image: '/events/phere.png' },
-};
+}; 
