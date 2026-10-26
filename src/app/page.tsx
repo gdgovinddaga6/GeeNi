@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, CalendarRange, Camera, Heart, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarRange, Heart, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getEvent, toDate } from '@/lib/schedule';
@@ -21,18 +21,6 @@ const quickActions = [
     title: 'Venue',
     description: 'A serene resort in Hyderabad, designed for warm gatherings and easy travel.',
     icon: MapPin,
-  },
-  {
-    href: '/gallery',
-    title: 'Gallery',
-    description: 'A growing archive of the moments we will treasure for years to come.',
-    icon: Camera,
-  },
-  {
-    href: '/upload',
-    title: 'Upload',
-    description: 'Celebrate with us by sharing the memories you hold close.',
-    icon: Sparkles,
   },
 ];
 
@@ -197,7 +185,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2">
           {quickActions.map((item) => {
             const Icon = item.icon;
             return (

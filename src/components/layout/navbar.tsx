@@ -8,8 +8,6 @@ import { MusicToggle } from '@/components/layout/music-toggle';
 const links = [
   { href: '/events', label: 'Events' },
   { href: '/venue', label: 'Venue' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/upload', label: 'Upload' },
 ];
 
 export function Navbar() {

@@ -46,8 +46,8 @@ export default function StoryPage() {
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="overflow-hidden rounded-[32px] border border-[#efe6db] bg-white/80 p-2 shadow-soft">
           <Image
-            src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80"
-            alt="A couple in a warm, intimate setting"
+            src="/images/story-couple.jpeg"
+            alt="Nidhi and Govind smiling together outdoors at night"
             width={900}
             height={1100}
             className="h-[560px] w-full rounded-[28px] object-cover"

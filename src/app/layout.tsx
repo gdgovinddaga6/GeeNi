@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/footer';
 export const metadata: Metadata = {
   title: 'GeeNi | Nidhi & Govind',
   description:
-    'A warm, luxurious wedding experience designed for Nidhi Bang and Govind Daga, celebrating tradition and modern elegance.',
+    'Designed personally by Govind and Nidhi <3',
   keywords: ['wedding website', 'Indian wedding', 'luxury wedding', 'GeeNi'],
 };
 

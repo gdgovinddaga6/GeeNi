@@ -33,7 +33,7 @@ function CalendarLink({ event, name, withLabel = false }: { event: ScheduleEvent
   );
 }
 
-function TimelineStop({ event }: { event: ScheduleEvent }) {
+function TimelineStop({ event, priority = false }: { event: ScheduleEvent; priority?: boolean }) {
   const featured = featuredEvents[event.id];
 
   if (featured) {
@@ -47,7 +47,7 @@ function TimelineStop({ event }: { event: ScheduleEvent }) {
           )}
         />
         <article className="flex gap-4 rounded-[24px] border border-[#efe6db] bg-white/80 p-3 shadow-soft sm:gap-6 sm:p-4">
-          <PosterLightbox src={featured.image} title={featured.title} />
+          <PosterLightbox src={featured.image} title={featured.title} priority={priority} />
           <div className="flex min-w-0 flex-1 flex-col justify-center">
             <time dateTime={event.start} className="text-xs font-medium uppercase tracking-[0.12em] text-rose">
               {featured.time}
@@ -88,6 +88,8 @@ function TimelineStop({ event }: { event: ScheduleEvent }) {
 }
 
 export function EventTimeline({ days }: { days: ScheduleDay[] }) {
+  const firstEventId = days[0]?.events[0]?.id;
+
   return (
     <section id="schedule" aria-labelledby="schedule-heading" className="mx-auto max-w-2xl scroll-mt-24">
       <h2 id="schedule-heading" className="sr-only">
@@ -124,7 +126,7 @@ export function EventTimeline({ days }: { days: ScheduleDay[] }) {
             </h3>
             <ol>
               {day.events.map((event) => (
-                <TimelineStop key={event.id} event={event} />
+                <TimelineStop key={event.id} event={event} priority={event.id === firstEventId} />
               ))}
             </ol>
           </div>

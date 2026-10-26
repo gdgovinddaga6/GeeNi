@@ -1,19 +1,24 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { X } from 'lucide-react';
 
 type PosterLightboxProps = {
   src: string;
   title: string;
+  priority?: boolean;
 };
 
 // A poster thumbnail that opens the full poster in a modal. The native <dialog> handles focus and Escape.
-export function PosterLightbox({ src, title }: PosterLightboxProps) {
+export function PosterLightbox({ src, title, priority = false }: PosterLightboxProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [hasOpened, setHasOpened] = useState(false);
 
-  const open = () => dialogRef.current?.showModal();
+  const open = () => {
+    setHasOpened(true);
+    dialogRef.current?.showModal();
+  };
   const close = () => dialogRef.current?.close();
 
   return (
@@ -29,6 +34,7 @@ export function PosterLightbox({ src, title }: PosterLightboxProps) {
           alt=""
           fill
           sizes="(min-width: 640px) 112px, 80px"
+          priority={priority}
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <span className="sr-only">View the {title} poster</span>
@@ -44,14 +50,16 @@ export function PosterLightbox({ src, title }: PosterLightboxProps) {
         className="m-auto max-h-none max-w-none overflow-visible bg-transparent p-0 backdrop:bg-black/75 backdrop:backdrop-blur-sm"
       >
         <div className="relative">
-          <Image
-            src={src}
-            alt={`${title} poster`}
-            width={735}
-            height={920}
-            sizes="(min-width: 640px) 560px, 92vw"
-            className="h-auto max-h-[85vh] w-[92vw] max-w-[560px] rounded-[20px] object-contain shadow-2xl"
-          />
+          {hasOpened ? (
+            <Image
+              src={src}
+              alt={`${title} poster`}
+              width={735}
+              height={920}
+              sizes="(min-width: 640px) 560px, 92vw"
+              className="h-auto max-h-[85vh] w-[92vw] max-w-[560px] rounded-[20px] object-contain shadow-2xl"
+            />
+          ) : null}
           <button
             type="button"
             onClick={close}
